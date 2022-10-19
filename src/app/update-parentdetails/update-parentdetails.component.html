@@ -1,0 +1,209 @@
+<hr><br>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 0px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+input[type=email], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+input[type=email]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+input[type=date], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+input[type=date]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+.column {
+  float: left;
+  width: 40%;
+  padding: 10px;
+  height: 100px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.content {
+    display: table;
+    
+    padding: 13px ;
+
+    width: 100%;
+  padding: 15px;
+ }
+
+  .card-container {
+    width: 100%;
+  padding: 13px;
+ 
+  }
+</style>
+
+
+<body>
+
+<form action="/action_page.php">
+  <div class="container">
+
+      <h1 style="font-size: 20px ; color: red;position:relative;right:-600px"  ><b>UPDATE-INFO</b>    </h1>
+      <h2 style="font-size: 15px ; color: black;position:relative;right:-100px"  >
+       <form #form="ngForm"(ngSubmit)="onSubmit()" ><!-- -->
+   
+          <div class="row">
+            <div class="column">
+        <tr>  <td><label for="">FatherName</label> <label *ngIf="lname.touched&&lname.invalid" style="color:crimson;font-style:normal;font-size: small;">*</label></td>   
+            <td> <input type="text" placeholder="Enter FatherName" name="FatherName" (keypress)="keyPressAlphabets($event)"  [(ngModel)]="parent.fatherName"  required #lname="ngModel"></td>  </tr> 
+         
+          <tr>  <td>  <label for="">MotherName</label> <label *ngIf="lMname.touched&&lMname.invalid" style="color:crimson;font-style:normal;font-size: small;">*</label> </td>  
+            <td> <input type="text" placeholder="Enter MotherName" name="MotherName" (keypress)="keyPressAlphabets($event)"  [(ngModel)]="parent.motherName"  required #lMname="ngModel"></td>  </tr> 
+           
+        <tr>  <td><label for="">StudentName</label> <label *ngIf="lSname.touched&&lSname.invalid" style="color:crimson;font-style:normal;font-size: small;">*</label> </td>  
+            <td>  <input type="text" placeholder="Enter StudentName" name="StudentName" (keypress)="keyPressAlphabets($event)" [(ngModel)]="parent.studentName"  required #lSname="ngModel"></td>  </tr> 
+               
+     <tr>  <td>   <label for="">Addresses</label> <label *ngIf="lAddress.touched&&lAddress.invalid" style="color:crimson;font-style:normal;font-size: small;">*</label> </td>  
+        <td>   <input type="text" placeholder="Enter Addresse" placeholder="Enter Addresses" name="Addresses" [(ngModel)]="parent.addresses"  required #lAddress="ngModel"></td>  </tr> 
+                  
+        <!-- <tr>  <td>   <label for="">Country</label> <label *ngIf="lCountry.touched&&lCountry.invalid" style="color:crimson;font-style:normal;font-size: small;">*</label> </td>  
+          <td>     <input type="text" placeholder="Enter Country" name="country" [(ngModel)]="parent.country"  required #lCountry="ngModel"></td>  </tr> 
+
+          <tr> <td>    <label for="">States</label> <label *ngIf="lStates.touched&&lStates.invalid" style="color:crimson;font-style:normal;font-size: small;">*</label> </td>  
+            <td>   <input type="text" placeholder="Enter State" name="States" [(ngModel)]="parent.states"  required #lStates="ngModel"></td>  </tr> 
+                                 
+            <tr>  <td>   <label for="">City</label> <label *ngIf="lCity.touched&&lCity.invalid" style="color:crimson;font-style:normal;font-size: small;">*</label> </td>  
+                <td>     <input type="text" placeholder="Enter City" name="city" [(ngModel)]="parent.city"  required #lCity="ngModel"></td>  </tr> 
+               -->
+               <div class="card-container">
+                <tr><td><label>Country</label></td>&nbsp;<td></td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <td>  <select placeholder="Country"  (change)="changeCountry($event) " >
+                    <option>{{this.parent.country}}</option>
+                    <option *ngFor="let country of Countries">{{country.name}}</option>
+                  </select></td></tr> 
+               </div>
+              
+               <div class="card-container">
+                  <tr><td> <label>State</label></td>&nbsp;<td></td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <td>  <select placeholder="State" (change)="changeState($event)">
+                    <option>{{this.parent.states}}</option>
+                    <option *ngFor="let state of statess">{{state.name}}</option>
+                  </select></td></tr> 
+               </div>
+
+               <div class="card-container">
+                  <tr><td>   <label>City</label></td>&nbsp;<td></td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <td>    <select placeholder="City"(change)="changeCity($event)" >
+                    <option>{{this.parent.city}}</option>
+                    <option *ngFor="let city of cities">{{city}}</option>
+                  </select></td></tr> 
+                </div>
+
+          <tr>  <td>   <label for="">ZipCode</label> <label *ngIf="lZipCode.touched&&lZipCode.invalid" style="color:crimson;font-style:normal;font-size: small;">*</label>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;</td>  
+            <td>   <input type="text" placeholder="Enter ZipCode" size="6" minlength="6" maxlength="6" (keypress)="keyPressNumbers($event)" name="zipCode" [(ngModel)]="parent.zipCode"  required #lZipCode="ngModel"> 
+           </td></tr> 
+</div>
+<div class="column">     
+            <tr> <td>    <label for="">DateOfBirth</label> <label *ngIf="lDateOfBirth.touched&&lDateOfBirth.invalid" style="color:crimson;font-style:normal;font-size: small;">*</label> </td>  
+                <td>   <input type="date" name="dateOfBirth" [(ngModel)]="parent.dateOfBirth"  required #lDateOfBirth="ngModel"></td>  </tr> 
+                  
+            <tr>  <td>   <label for="">StudentClass</label> <label *ngIf="lStudentClass.touched&&lStudentClass.invalid" style="color:crimson;font-style:normal;font-size: small;">*</label> </td>  
+                <td>      <input type="text" placeholder="Enter StudentClass" name="studentClass" [(ngModel)]="parent.studentClass"  required #lStudentClass="ngModel"></td>  </tr> 
+               
+            <tr> <td>    <label for="">PrimaryContactPerson</label> <label *ngIf="lPrimary.touched&&lPrimary.invalid" style="color:crimson;font-style:normal;font-size: small;">*</label></td>   
+                <td>    <input type="text" placeholder="Enter PrimaryContactPerson" name="primaryContactPerson" (keypress)="keyPressAlphabets($event)" [(ngModel)]="parent.primaryContactPerson"  required #lPrimary="ngModel"></td>  </tr> 
+                  
+           <tr>  <td>   <label for="">PrimaryContactPersonMobileNo</label> <label *ngIf="lpno.touched&&lpno.invalid" style="color:crimson;font-style:normal;font-size: small;">*</label> </td>  
+            <td>     <input type="text"  placeholder="Enter PrimaryContactPersonMobileNo" size="10"minlength="10" maxlength="10" (keypress)="keyPressNumbers($event)"name="primaryContactPersonMobileNo" [(ngModel)]="parent.primaryContactPersonMobileNo"  required #lpno="ngModel"></td>  </tr> 
+                     
+         <tr>  <td>   <label for="">SecondaryContactPerson</label> <label *ngIf="lSecondary.touched&&lSecondary.invalid" style="color:crimson;font-style:normal;font-size: small;">*</label> </td>  
+            <td>     <input type="text" placeholder="Enter SecondaryContactPerson" name="secondaryContactPerson" (keypress)="keyPressAlphabets($event)" [(ngModel)]="parent.secondaryContactPerson"  required #lSecondary="ngModel"></td>  </tr> 
+                      
+              <tr>  <td>   <label for="">SecondaryContactPersonMobileNo</label> <label *ngIf="lSno.touched&&lSno.invalid" style="color:crimson;font-style:normal;font-size: small;">*</label> </td>  
+                <td>    <input type="text" placeholder="Enter SecondaryContactPersonMobileNo" size="10" minlength="10" maxlength="10" (keypress)="keyPressNumbers($event)" name="secondaryContactPersonMobileNo" [(ngModel)]="parent.secondaryContactPersonMobileNo"  required #lSno="ngModel"></td>  </tr> 
+             
+                <br>     
+        <div class="form-group">
+          <th>    <button (onclick)="onSubmit()">Updated</button></th> 
+         </div>
+        </div>
+      </div>
+     
+      </form>
+    </h2>

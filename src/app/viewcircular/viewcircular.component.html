@@ -1,0 +1,46 @@
+
+<hr><br>
+
+<h1 style="font-size: 20px ; color:red;">VIEW-CIRCULAR</h1>
+  <div class="cards-container">
+    <div class="cards-form">
+      <form #form="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="">CircularInformation</label>
+          <input type="text" name="CircularInformation" [(ngModel)]="circular.informationText">
+        </div>
+        <!-- <div class="form-group">
+            <label for="">CircularAcknowledgement</label>
+            <input type="text" name="CircularAcknowledgement" [(ngModel)]="parent.circularAcknowledgement">
+          </div> -->
+          <label for=""  style="font-size: 15px ; color:rgb(40, 47, 119);" >*The below acknowledgement is for all circular</label>
+          <label for="">CircularAcknowledgement</label>
+          <th>      <input type="radio" value="viewed"  name="role" ngModel (change)="CircularView()" [(ngModel)]="parent.circularAcknowledgement"> Completed</th> 
+            <th>       <input type="radio" value="Pending"  name="role" ngModel (change)="onStatusPending()" [(ngModel)]="parent.circularAcknowledgement"> Pending</th> 
+            
+        <br>
+        <div class="form-group">
+          <button>Save</button>
+        </div>
+      </form>
+    </div>
+    <h1 style="position:relative;right:-20px">
+    
+      <table style="font-size: 15px ; color:rgb(40, 47, 119);"  border="1%"  >
+    
+  
+  
+      <div class="card-row" *ngFor="let circular of circulars">
+        <div class="card-row-details" (click)="populateForm(circular)">
+           <tr border="10%">
+     <td> <span>{{ circular.informationText }}</span></td>
+   <td>     <span>{{ circular.notificationDate  | date:'yyyy/MM/dd' }}</span></td>
+   
+
+  </tr>
+  <tr></tr>
+</div>
+</div>
+
+</table>
+</h1>

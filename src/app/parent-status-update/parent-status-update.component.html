@@ -1,0 +1,49 @@
+<hr><br>
+<h1 style="font-size: 20px ; color:red;"> STUDENTSTATUS</h1>
+  <div class="cards-container">
+    <div class="cards-form">
+      <form #form="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+             <label for="">StudentRegisterNumber</label>
+                <input type="text"  name="Status" [(ngModel)]="parent.studentRegisterNumber">
+               
+                <label for="">Age</label>
+                <input type="text"  name="Age" [(ngModel)]="age">
+              
+                <!-- <label for="">Status</label>
+                <input type="text" name="Status" [(ngModel)]="parent.applicationStatus">
+              -->
+          <label for="">Status</label>
+          <th>      <input type="radio" value="Approved"  name="role" ngModel (change)="onStatusApproved()" [(ngModel)]="parent.applicationStatus"> Approved</th> 
+            <th>       <input type="radio" value="Pending"  name="role" ngModel (change)="onStatusPending()" [(ngModel)]="parent.applicationStatus"> Pending</th> 
+            <th>       <input type="radio" value="Rejected" name="role" ngModel (change)="onStatusRejected()" [(ngModel)]="parent.applicationStatus"> Rejected</th> 
+        
+        </div>
+        <div class="form-group">
+          <button>Save</button>
+        </div>
+      </form>
+     
+
+    </div>
+    <h1 style="position:relative;right:-20px">
+    
+      <table style="font-size: 15px ; color:rgb(40, 47, 119);"  border="1%"  >
+    
+  
+      <div class="card-row" *ngFor="let parent of parents">
+        <div class="card-row-details" (click)="populateForm(parent)">
+          <tr>
+                <td> <span>  {{ parent.studentRegisterNumber }} </span></td>
+                <td> <span>  {{ parent.studentName }} </span></td>
+                <td> <span>  {{ parent.email }} </span></td>
+                <td> <span>  {{ parent.dateOfBirth | date:'yyyy/MM/dd' }}  </span></td>
+                <td> <span>  {{ parent.studentClass }} </span></td>
+                
+              </tr>
+              <tr></tr>
+            </div>
+        </div>
+       
+      </table>
+    </h1>

@@ -1,0 +1,49 @@
+ <hr><br>
+ <h1 style="position:relative;right:10px">
+   <!-- <table>   <tr>
+   <td>
+        <img ng-if="vm.dataLoading" src="https://www.sehat.com/sht-new-img/new/login-new.png"  width="50%" height="200" />
+    </td> -->
+
+    <div class="login-page">
+        <div class="form">
+          <div class="login">
+            <div class="login-header">
+              <h3 style="font-size: 20px; color:red;" >LOGIN</h3>
+              <p  style="font-size: 15px">Please enter your credentials to login.</p>
+            </div>
+          </div>
+          <form class="login-form" #form="ngForm"(ngSubmit)="onSubmit()">
+            <input type="text" placeholder="Email" name="Email" [(ngModel)]="loggedin.email"  required #lename="ngModel"/>
+            <input type="password" placeholder="password" name="password" [(ngModel)]="loggedin.password" required #lname="ngModel"/>
+            <button (onclick)="onSubmit()">login</button>
+            <p class="message">Not registered? <a [routerLink]="['/signup']">Create an account</a></p>
+            <a style="font-size: 15px" [routerLink]="['/forgetpassword']"> ForgotPassword </a>
+          </form>
+        </div>
+      </div>
+    <!-- <td>
+            <h2 style="font-size: 20px ; color: red;right:-400px" >LOGIN</h2>
+       <form #form="ngForm"(ngSubmit)="onSubmit()" >
+<table>
+
+       <tr>   <td style="font-size: 15px ;line-height: 40px;"><label for="">Email </label><label *ngIf="lename.touched&&lename.invalid" style="color:crimson;font-style:normal;font-size: 5px;">*</label></td>&nbsp;
+      <td><input type="text" name="Email" [(ngModel)]="loggedin.email"  required #lename="ngModel"></td>   </tr> 
+         
+  
+       
+        <tr> <td style="font-size: 15px ;line-height: 40px;">   <label for="">Password</label><label *ngIf="lname.touched&&lname.invalid" style="color:crimson;font-style:normal;font-size: small;">*</label></td>&nbsp;
+          <td>   <input type="password" name="password" [(ngModel)]="loggedin.password" required #lname="ngModel"></td></tr> 
+     
+
+      
+        <th>     <button (onclick)="onSubmit()">Login </button></th> 
+        <br>
+       
+    </table>  
+    <a style="font-size: 15px" [routerLink]="['/forgetpassword']"> ForgetPassword </a>       
+    </form> 
+  </table>  
+</h1>   -->
+
+        

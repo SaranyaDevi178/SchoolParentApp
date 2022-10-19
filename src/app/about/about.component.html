@@ -1,0 +1,27 @@
+<hr><br>
+<h1 style="font-size: 20px ; color:red;" align="middle">ABOUT</h1>
+<p>M.S CBSE English Medium School believes that every child has an inherent desire to 
+    learn and share his/her learning and discoveries with peers, teachers, and parents. 
+    We also believe that every child has an innate wish to be appreciated and 
+    applauded on his/her smallest achievement.</p>
+    
+    <h1 style="position:relative;right:-280px">
+    
+<table style="font-size: 15px ; color:rgb(40, 47, 119);" align="middle" border="10%"  ><h1>FeesStructure</h1>
+<tbody *ngFor="let fees of feesdetail">
+    <tr>
+        <td>{{ fees.id }}</td>
+        <td>{{ fees.class}}</td>
+        <td>{{ fees.feesStructure }}</td>
+    </tr>
+  </tbody> 
+  <h1>HolidayDetails</h1>
+    <tbody *ngFor="let holiday of holidayDetails">
+        <tr>
+            <td>{{ holiday.id }}</td>
+            <td>{{ holiday.holidayDate}}</td>
+            <td>{{ holiday.holidayReason }}</td>
+        </tr>
+      </tbody> 
+    </table>
+</h1>

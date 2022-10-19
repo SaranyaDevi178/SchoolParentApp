@@ -1,0 +1,44 @@
+<hr><br>
+    <h1 style="position:relative;right:10px;">
+      <!--  <table>   <tr>
+      <h3  style="position:relative;right:-150px;">
+            <img ng-if="vm.dataLoading" src="https://essentialsiteskills.co.uk/storage/app/uploads/public/609/26a/b11/thumb_3077_960_480_0_0_crop.jpg"  width="50%" height="200" />
+        </h3> -->
+
+        <div class="login-page">
+            <div class="form">
+              <div class="login">
+                <div class="login-header">
+                  <h3 style="font-size: 20px; color:red;" >ADMIN</h3>
+                  <p  style="font-size: 15px">Please enter admin credentials to login.</p>
+                </div>
+              </div>
+              <form class="login-form" #form="ngForm"(ngSubmit)="onSubmit()">
+                <input type="text" placeholder="Email" name="Email" [(ngModel)]="admin.staffName"  required #lename="ngModel"/>
+                <input type="password" placeholder="password" name="password" [(ngModel)]="admin.password" required #lname="ngModel"/>
+                <button (onclick)="onSubmit()">login</button>
+               
+              </form>
+            </div>
+          </div>
+              <!-- <td>
+      <h2 style="font-size: 20px ; color: red;" >ADMIN</h2>
+      
+       <form #form="ngForm"(ngSubmit)="onSubmit()" >
+
+       <tr>   <td style="font-size: 15px ;line-height: 40px;"><label for="">UserName </label><label *ngIf="lname.touched&&lname.invalid" style="color:crimson;font-style:normal;font-size: small;">*</label></td><td></td>
+<td><input type="text" name="UserName" [(ngModel)]="admin.staffName" required #lname="ngModel" ></td></tr> 
+
+        <tr> <td style="font-size: 15px ;line-height: 40px;"><label for="">Password </label><label *ngIf="lname.touched&&lname.invalid" style="color:crimson;font-style:normal;font-size: small;">*</label></td><td></td>
+          <td>   <input type="password" name="Password" [(ngModel)]="admin.password"  required #lname="ngModel"  ></td></tr> 
+    
+        <td> <button (onclick)="onSubmit()">Login </button></td> 
+   
+    </form>
+</td>
+
+</tr>  </table> 
+    </h1>   -->
+
+
+    
