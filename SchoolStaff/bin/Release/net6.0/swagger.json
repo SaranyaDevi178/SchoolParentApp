@@ -1,0 +1,549 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "SchoolStaff, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Circulars": {
+      "get": {
+        "tags": [
+          "Circulars"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Circular"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Circulars"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Circular"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Circular"
+            }
+          }
+        }
+      }
+    },
+    "/api/Circulars/{id}": {
+      "get": {
+        "tags": [
+          "Circulars"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Circular"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Circulars"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Circular"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Circulars"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/FeesDetails": {
+      "get": {
+        "tags": [
+          "FeesDetails"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FeesDetail"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/FeesDetails/{id}": {
+      "get": {
+        "tags": [
+          "FeesDetails"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/FeesDetail"
+            }
+          }
+        }
+      }
+    },
+    "/api/HolidayDetails": {
+      "get": {
+        "tags": [
+          "HolidayDetails"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/HolidayDetail"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/HolidayDetails/{id}": {
+      "get": {
+        "tags": [
+          "HolidayDetails"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/HolidayDetail"
+            }
+          }
+        }
+      }
+    },
+    "/api/Parents": {
+      "get": {
+        "tags": [
+          "Parents"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Parent"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Parents/{id}": {
+      "get": {
+        "tags": [
+          "Parents"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Parent"
+            }
+          }
+        }
+      }
+    },
+    "/api/Parents/{Regid}": {
+      "put": {
+        "tags": [
+          "Parents"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Regid",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Parent"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/staffs": {
+      "get": {
+        "tags": [
+          "staffs"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/staff"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/staffs/{id}": {
+      "get": {
+        "tags": [
+          "staffs"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/staff"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ApplicationStatus": {
+      "type": "object",
+      "properties": {
+        "statusId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "statustype": {
+          "type": "string"
+        },
+        "parents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Parent"
+          }
+        }
+      }
+    },
+    "Circular": {
+      "required": [
+        "notificationPostedBy"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "notificationDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "informationText": {
+          "type": "string"
+        },
+        "notificationPostedBy": {
+          "type": "string"
+        },
+        "notificationPostedByNavigation": {
+          "$ref": "#/definitions/staff"
+        }
+      }
+    },
+    "FeesDetail": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "class": {
+          "type": "string"
+        },
+        "feesStructure": {
+          "type": "string"
+        }
+      }
+    },
+    "HolidayDetail": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "holidayDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "holidayReason": {
+          "type": "string"
+        }
+      }
+    },
+    "Parent": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "studentRegisterNumber": {
+          "type": "string"
+        },
+        "fatherName": {
+          "type": "string"
+        },
+        "motherName": {
+          "type": "string"
+        },
+        "studentName": {
+          "type": "string"
+        },
+        "addresses": {
+          "type": "string"
+        },
+        "states": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "zipCode": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "dateOfBirth": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "studentClass": {
+          "type": "string"
+        },
+        "primaryContactPerson": {
+          "type": "string"
+        },
+        "primaryContactPersonMobileNo": {
+          "type": "string"
+        },
+        "secondaryContactPerson": {
+          "type": "string"
+        },
+        "secondaryContactPersonMobileNo": {
+          "type": "string"
+        },
+        "circularAcknowledgement": {
+          "type": "boolean"
+        },
+        "applicationStatus": {
+          "type": "string"
+        },
+        "applicationStatusNavigation": {
+          "$ref": "#/definitions/ApplicationStatus"
+        }
+      }
+    },
+    "staff": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "staffName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "circulars": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Circular"
+          }
+        }
+      }
+    }
+  }
+}

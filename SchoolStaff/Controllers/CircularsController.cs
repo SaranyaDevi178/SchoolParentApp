@@ -80,11 +80,19 @@ namespace SchoolStaff.Controllers
         [HttpPost]
         public async Task<ActionResult<Circular>> PostCircular(Circular circular)
         {
-            _context.Circulars.Add(circular);
-            var ValidCustomers = _context.Parents.ForEachAsync(c => c.CircularAcknowledgement=false);
-            //ValidCustomers.ForEach(c => c.CreditLimit = 1000);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction("GetCircular", new { id = circular.Id }, circular);
+            try
+            {
+                _context.Circulars.Add(circular);
+                 await _context.Parents.ForEachAsync(c => c.CircularAcknowledgement = false);
+                //ValidCustomers.ForEach(c => c.CreditLimit = 1000);
+                 _context.SaveChanges();
+                return CreatedAtAction("GetCircular", new { id = circular.Id }, circular);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+
+            }
         }
 
         // DELETE: api/Circulars/5

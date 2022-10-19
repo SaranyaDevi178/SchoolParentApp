@@ -14,7 +14,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<SchoolParentAppContext>(options =>
        options.UseSqlServer(builder.Configuration.GetConnectionString("dbConn")));
-
+builder.Services.AddDbContext<SchoolParentAppContext>(ServiceLifetime.Transient);
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(option =>
             {

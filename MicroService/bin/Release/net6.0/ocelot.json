@@ -1,0 +1,91 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/FeesDetails",
+      "DownstreamSchema": "https",
+      "DownstreamHttpMethod": "GET",
+      "RouteIsCaseSensitive": false,
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7189"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/FeesDetails",
+      "UpstreamHttpMethod": [ "Get" ]
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/HolidayDetails",
+      "DownstreamSchema": "https",
+      "DownstreamHttpMethod": "GET",
+      "RouteIsCaseSensitive": false,
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7189"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/HolidayDetails",
+      "UpstreamHttpMethod": [ "Get" ]
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/Parents",
+      "DownstreamSchema": "https",
+      "DownstreamHttpMethod": "GET",
+      "RouteIsCaseSensitive": false,
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7189"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Parents/staffparentget",
+      "UpstreamHttpMethod": [ "Get" ]
+
+    },
+    {
+
+      "DownstreamPathTemplate": "/validate",
+      "DownstreamSchema": "https",
+      "DownstreamHttpMethod": "Post",
+      "RouteIsCaseSensitive": false,
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7051"
+        }
+      ],
+      "UpstreamPathTemplate": "/validate",
+      "UpstreamHttpMethod": [ "POST" ]
+
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/Parents",
+      "DownstreamSchema": "https",
+      "DownstreamHttpMethod": "Post",
+      "RouteIsCaseSensitive": false,
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7189"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Parents/staffparentpost",
+      "UpstreamHttpMethod": [ "Post" ]
+
+    }
+
+    
+
+
+
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:7210"
+  }
+}
+
+

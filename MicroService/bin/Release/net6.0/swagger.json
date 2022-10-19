@@ -1,0 +1,509 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "MicroService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "version": "1.0"
+  },
+  "paths": {
+    "/configuration": {
+      "get": {
+        "tags": [
+          "FileConfiguration"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "FileConfiguration"
+        ],
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/FileConfiguration"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/outputcache/{region}": {
+      "delete": {
+        "tags": [
+          "OutputCache"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "region",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AggregateRouteConfig": {
+      "type": "object",
+      "properties": {
+        "routeKey": {
+          "type": "string"
+        },
+        "parameter": {
+          "type": "string"
+        },
+        "jsonPath": {
+          "type": "string"
+        }
+      }
+    },
+    "FileAggregateRoute": {
+      "type": "object",
+      "properties": {
+        "routeKeys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "routeKeysConfig": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AggregateRouteConfig"
+          }
+        },
+        "upstreamPathTemplate": {
+          "type": "string"
+        },
+        "upstreamHost": {
+          "type": "string"
+        },
+        "routeIsCaseSensitive": {
+          "type": "boolean"
+        },
+        "aggregator": {
+          "type": "string"
+        },
+        "upstreamHttpMethod": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "readOnly": true
+        },
+        "priority": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "FileAuthenticationOptions": {
+      "type": "object",
+      "properties": {
+        "authenticationProviderKey": {
+          "type": "string"
+        },
+        "allowedScopes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "FileCacheOptions": {
+      "type": "object",
+      "properties": {
+        "ttlSeconds": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "region": {
+          "type": "string"
+        }
+      }
+    },
+    "FileConfiguration": {
+      "type": "object",
+      "properties": {
+        "routes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FileRoute"
+          }
+        },
+        "dynamicRoutes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FileDynamicRoute"
+          }
+        },
+        "aggregates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FileAggregateRoute"
+          }
+        },
+        "globalConfiguration": {
+          "$ref": "#/definitions/FileGlobalConfiguration"
+        }
+      }
+    },
+    "FileDynamicRoute": {
+      "type": "object",
+      "properties": {
+        "serviceName": {
+          "type": "string"
+        },
+        "rateLimitRule": {
+          "$ref": "#/definitions/FileRateLimitRule"
+        },
+        "downstreamHttpVersion": {
+          "type": "string"
+        }
+      }
+    },
+    "FileGlobalConfiguration": {
+      "type": "object",
+      "properties": {
+        "requestIdKey": {
+          "type": "string"
+        },
+        "serviceDiscoveryProvider": {
+          "$ref": "#/definitions/FileServiceDiscoveryProvider"
+        },
+        "rateLimitOptions": {
+          "$ref": "#/definitions/FileRateLimitOptions"
+        },
+        "qoSOptions": {
+          "$ref": "#/definitions/FileQoSOptions"
+        },
+        "baseUrl": {
+          "type": "string"
+        },
+        "loadBalancerOptions": {
+          "$ref": "#/definitions/FileLoadBalancerOptions"
+        },
+        "downstreamScheme": {
+          "type": "string"
+        },
+        "httpHandlerOptions": {
+          "$ref": "#/definitions/FileHttpHandlerOptions"
+        },
+        "downstreamHttpVersion": {
+          "type": "string"
+        }
+      }
+    },
+    "FileHostAndPort": {
+      "type": "object",
+      "properties": {
+        "host": {
+          "type": "string"
+        },
+        "port": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "FileHttpHandlerOptions": {
+      "type": "object",
+      "properties": {
+        "allowAutoRedirect": {
+          "type": "boolean"
+        },
+        "useCookieContainer": {
+          "type": "boolean"
+        },
+        "useTracing": {
+          "type": "boolean"
+        },
+        "useProxy": {
+          "type": "boolean"
+        },
+        "maxConnectionsPerServer": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "FileLoadBalancerOptions": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "expiry": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "FileQoSOptions": {
+      "type": "object",
+      "properties": {
+        "exceptionsAllowedBeforeBreaking": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "durationOfBreak": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "timeoutValue": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "FileRateLimitOptions": {
+      "type": "object",
+      "properties": {
+        "clientIdHeader": {
+          "type": "string"
+        },
+        "quotaExceededMessage": {
+          "type": "string"
+        },
+        "rateLimitCounterPrefix": {
+          "type": "string"
+        },
+        "disableRateLimitHeaders": {
+          "type": "boolean"
+        },
+        "httpStatusCode": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "FileRateLimitRule": {
+      "type": "object",
+      "properties": {
+        "clientWhitelist": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "enableRateLimiting": {
+          "type": "boolean"
+        },
+        "period": {
+          "type": "string"
+        },
+        "periodTimespan": {
+          "format": "double",
+          "type": "number"
+        },
+        "limit": {
+          "format": "int64",
+          "type": "integer"
+        }
+      }
+    },
+    "FileRoute": {
+      "type": "object",
+      "properties": {
+        "downstreamPathTemplate": {
+          "type": "string"
+        },
+        "upstreamPathTemplate": {
+          "type": "string"
+        },
+        "upstreamHttpMethod": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "downstreamHttpMethod": {
+          "type": "string"
+        },
+        "addHeadersToRequest": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "upstreamHeaderTransform": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "downstreamHeaderTransform": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "addClaimsToRequest": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "routeClaimsRequirement": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "addQueriesToRequest": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "changeDownstreamPathTemplate": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "requestIdKey": {
+          "type": "string"
+        },
+        "fileCacheOptions": {
+          "$ref": "#/definitions/FileCacheOptions"
+        },
+        "routeIsCaseSensitive": {
+          "type": "boolean"
+        },
+        "serviceName": {
+          "type": "string"
+        },
+        "serviceNamespace": {
+          "type": "string"
+        },
+        "downstreamScheme": {
+          "type": "string"
+        },
+        "qoSOptions": {
+          "$ref": "#/definitions/FileQoSOptions"
+        },
+        "loadBalancerOptions": {
+          "$ref": "#/definitions/FileLoadBalancerOptions"
+        },
+        "rateLimitOptions": {
+          "$ref": "#/definitions/FileRateLimitRule"
+        },
+        "authenticationOptions": {
+          "$ref": "#/definitions/FileAuthenticationOptions"
+        },
+        "httpHandlerOptions": {
+          "$ref": "#/definitions/FileHttpHandlerOptions"
+        },
+        "downstreamHostAndPorts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FileHostAndPort"
+          }
+        },
+        "upstreamHost": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "delegatingHandlers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "priority": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "timeout": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "dangerousAcceptAnyServerCertificateValidator": {
+          "type": "boolean"
+        },
+        "securityOptions": {
+          "$ref": "#/definitions/FileSecurityOptions"
+        },
+        "downstreamHttpVersion": {
+          "type": "string"
+        }
+      }
+    },
+    "FileSecurityOptions": {
+      "type": "object",
+      "properties": {
+        "ipAllowedList": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ipBlockedList": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "FileServiceDiscoveryProvider": {
+      "type": "object",
+      "properties": {
+        "scheme": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        },
+        "port": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "type": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        },
+        "configurationKey": {
+          "type": "string"
+        },
+        "pollingInterval": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "namespace": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

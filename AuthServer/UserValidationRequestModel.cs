@@ -11,7 +11,7 @@ namespace AuthServer
 
         public bool IsValidate(string email, string password)
         {
-            if (context.Parents.Any(x => x.Email == email && x.Password == AuthServer.EncryptDecrypt.EncodePasswordToBase64(password)))
+            if (context.Parents.Any(x => x.Email == email && x.Password == AuthServer.EncryptDecrypt.EncodePasswordToBase64(password))) 
             // AuthServer.EncryptDecrypt.EncodePasswordToBase64(password)
             {
                 return true;

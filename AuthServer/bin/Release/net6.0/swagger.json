@@ -1,0 +1,65 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "AuthServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "version": "1.0"
+  },
+  "paths": {
+    "/validate": {
+      "post": {
+        "tags": [
+          "AuthServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+        ],
+        "operationId": "Validate",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserValidationRequestModel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StringBoolean<>f__AnonymousType0"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "StringBoolean<>f__AnonymousType0": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        },
+        "isAuthenticated": {
+          "type": "boolean"
+        }
+      }
+    },
+    "UserValidationRequestModel": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
